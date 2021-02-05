@@ -82,8 +82,10 @@ public class procesos {
     public static int inverso(int a, int z){
         // Make sure a < z;
         if (a % z != a) {
-          System.out.printf("%d ≡ %d (mod %d)", a, a % z, z);
+          System.out.printf("Hay que resolver: %dx ≡ %d (mod %d)\n", a, a % z, z);
           a = a % z;
+        } else {
+          System.out.printf("Hay que resolver: %dx ≡ 1 (mod %d)\n", a, z);
         }
         // Check mcd(a, z) == 1
         if (procesos.mcd(a, z) != 1) {
