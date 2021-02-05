@@ -4,44 +4,35 @@ import java.util.Locale;
 
 /**
  * Write a description of class mcd here.
- * 
- * @author (your name) 
+ *
+ * @author (your name)
  * @version (a version number or a date)
  */
 public class procesos {
-    public static int mcd1(int a, int b){
-
-        while(a != b) {
-            if(a > b) {
-                a = a - b;
-            } else {
-                b = b - a;
-            } 
-        }
-
-        return a; 
+    public static int mcd(int a, int b){
+        if (b == 0) return a;
+        return mcd(b, a % b);
     }
 
     public static int rango(int m, int a){
         int cociente, resto;
-        int n = 0; 
+        int n = 0;
 
         while(a != 0){
-            cociente = m / a; 
-            resto = m % a; 
+            cociente = m / a;
+            resto = m % a;
             m = a;
-            a = resto; 
-            n++; 
+            a = resto;
+            n++;
         }
-        n++;
-        return n; 
+        return n;
     }
 
 
     public static int rango2(int b){
-        int i = 2; 
-        int y = 0;              
-        int n = 0; 
+        int i = 2;
+        int y = 0;
+        int n = 0;
 
         while(b != 1) {
             if(b % i != 0){
@@ -55,42 +46,41 @@ public class procesos {
             }
         }
 
-        return n; 
+        return n;
     }
 
-    public static int fact(int[] a, int b){
-        int i = 2; 
-        int y = 0; 
-        while(b != 1) {
-            if(b % i != 0){
+    public static int[] fact(int a) {
+        int[] fact = new int[rango2(a)];
+        int i = 2;
+        int j = 0;
+        while(a != 1) {
+            if(a % i != 0){
                 i++;
             } else {
-                while(b % i == 0) {
-                    b /= i;
-                    a[y] = i;
-                    y++;
+                while(a % i == 0) {
+                    a /= i;
+                    fact[j] = i;
+                    j++;
                 }
             }
         }
-
-        return i; 
+        return fact;
     }
 
     public static int reducir(int a, int b, int c){
-        int u = procesos.mcd1(a, b);
-        int i = procesos.mcd1(u, c); 
+        int u = procesos.mcd(a, b);
+        int i = procesos.mcd(u, c);
 
-        return i; 
+        return i;
     }
-    
+
     public static int modulo(int a, int m){
-        a = a % m; 
-        return a; 
+        return a % m;
     }
-    
+
     public static int inverso(){
-        int x = 0; 
-        return x; 
-    
+        int x = 0;
+        return x;
+
     }
 }
