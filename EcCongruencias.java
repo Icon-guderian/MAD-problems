@@ -31,8 +31,6 @@ public class EcCongruencias {
 
             System.out.println("Las divisiones serían las siguientes: \n");
 
-
-
             if(a != 0){
                 for(int i = 1; a != 0; i++){
                     cociente = m / a;
@@ -45,28 +43,23 @@ public class EcCongruencias {
             }
 
             System.out.println("Los valores de los cocientes son: "+ Arrays.toString(f)+ "\n");
-
             System.out.println("Ahora siguiendo la ecuación de la Pi, que es: Pi = qi * P[i-1] + P[i-2] calculamos los Pi \n");
 
             int[] x = new int[f.length];
 
-            for(int s = 0; s < f.length; s++){
-                x[s] = 1;
-                System.out.println("El primer valor siempre será "+ x[s]);
-                s++;
-                int w = f[s] * x[s - 1];
-                System.out.println("Pi = "+ f[s] +" * " + x[s -1] +" + 0 = "+ w);
-                x[s] = w;
-                for(int q = 2; q < f.length; q++){
-                    int z = (f[q] * x[q - 1]) + x[q - 2];
-                    System.out.println("Pi = "+ f[q] +" * "+ x[q -1] +" + "+ x[q - 2] +" = "+ z);
-                    x[q] = z;
-                }
-                s = 1000000;
+            x[0] = 1;
+            System.out.println("El primer valor siempre será "+ x[0]);
+            int w = f[1] * x[0];
+            System.out.println("Pi = "+ f[1] +" * " + x[0] +" + 0 = "+ w);
+            x[1] = w;
+            for(int q = 2; q < f.length; q++){
+                int z = (f[q] * x[q - 1]) + x[q - 2];
+                System.out.println("Pi = "+ f[q] +" * "+ x[q -1] +" + "+ x[q - 2] +" = "+ z);
+                x[q] = z;
             }
 
-            System.out.println("Los valores de Pi son: "+ Arrays.toString(x) +"\n");
 
+            System.out.println("Los valores de Pi son: "+ Arrays.toString(x) +"\n");
             System.out.println("El cuadro tras realizar las operaciones de quedaría tal que así:");
             System.out.println(Arrays.toString(f));
             System.out.println(Arrays.toString(x) +"\n");
@@ -135,20 +128,18 @@ public class EcCongruencias {
 
                 int[] x = new int[f.length];
 
-                for(int s = 0; s < f.length; s++){
-                    x[s] = 1;
-                    System.out.println("El primer valor siempre será "+ x[s]);
-                    s++;
-                    int w = f[s] * x[s - 1];
-                    System.out.println("Pi = "+ f[s] +" * " + x[s -1] +" + 0 = "+ w);
-                    x[s] = w;
-                    for(int q = 2; q < f.length; q++){
-                        int z = (f[q] * x[q - 1]) + x[q - 2];
-                        System.out.println("Pi = "+ f[q] +" * "+ x[q -1] +" + "+ x[q - 2] +" = "+ z);
-                        x[q] = z;
-                    }
-                    s = 1000000;
+
+                x[0] = 1;
+                System.out.println("El primer valor siempre será "+ x[0]);
+                int w = f[1] * x[0];
+                System.out.println("Pi = "+ f[1] +" * " + x[0] +" + 0 = "+ w);
+                x[1] = w;
+                for(int q = 2; q < f.length; q++){
+                    int z = (f[q] * x[q - 1]) + x[q - 2];
+                    System.out.println("Pi = "+ f[q] +" * "+ x[q -1] +" + "+ x[q - 2] +" = "+ z);
+                    x[q] = z;
                 }
+
                 System.out.println("Olvide el último valor del array");
                 System.out.println("Los valores de Pi son: "+ Arrays.toString(x) +"\n");
 
@@ -222,7 +213,7 @@ public class EcCongruencias {
                 int[] f = new int[rg + 1];
 
                 if(a != 0){
-                    for(int i = 1; A != 0; i++){
+                    for(int i = 1; i < f.length; i++){
                         cociente = M / A;
                         resto = M % A;
                         f[i] = cociente;
@@ -238,20 +229,17 @@ public class EcCongruencias {
 
                 int[] x = new int[f.length];
 
-                for(int s = 0; s < f.length; s++){
-                    x[s] = 1;
-                    System.out.println("El primer valor siempre será "+ x[s]);
-                    s++;
-                    int w = f[s] * x[s - 1];
-                    System.out.println("Pi = "+ f[s] +" * " + x[s -1] +" + 0 = "+ w);
-                    x[s] = w;
-                    for(int q = 2; q < f.length; q++){
-                        int z = (f[q] * x[q - 1]) + x[q - 2];
-                        System.out.println("Pi = "+ f[q] +" * "+ x[q -1] +" + "+ x[q - 2] +" = "+ z);
-                        x[q] = z;
-                    }
-                    s = 1000000;
+                x[0] = 1;
+                System.out.println("El primer valor siempre será "+ x[0]);
+                int w = f[1] * x[0];
+                System.out.println("Pi = "+ f[1] +" * " + x[0] +" + 0 = "+ w);
+                x[1] = w;
+                for(int q = 2; q < f.length; q++){
+                    int z = (f[q] * x[q - 1]) + x[q - 2];
+                    System.out.println("Pi = "+ f[q] +" * "+ x[q -1] +" + "+ x[q - 2] +" = "+ z);
+                    x[q] = z;
                 }
+
                 System.out.println("Olvide el último valor del array");
                 System.out.println("Los valores de Pi son: "+ Arrays.toString(x) +"\n");
 
