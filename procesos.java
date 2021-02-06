@@ -134,6 +134,14 @@ public class procesos {
           int soluc = x[rg-1] * sol;
           System.out.println("Pi = (-1)^"+ (rg - 1) +" * "+ 1 +" * "+ x[rg-1]);
           System.out.println("Por tanto, a^(-1) = "+ soluc);
+          if (soluc < 0) {
+          	System.out.println("Solución negativa detectada. Convirtiendo en negativa");
+          	while (soluc < 0) {
+          		soluc = z + soluc;
+          	}
+          	System.out.println("La solución positiva y correcta es: "+soluc);
+
+          }
           return soluc;
         }
     }
