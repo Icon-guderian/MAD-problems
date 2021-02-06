@@ -237,6 +237,95 @@ public class RelacionDeDivisibilidad
     }
 
     /**
+     * Calcula si el conjunto es un retículo.
+     */
+    public boolean esReticulo() {
+    	for (int i = 0; i < set.length; i++) {
+    		for(int j = 0; j < set.length; j++) {
+    			int[] subconj = new int[2];
+    			subconj[0] = set[i];
+    			subconj[1] = set[j];
+    			int[] cotasup = cotasSuperiores(subconj);
+    			int[] cotainf = cotasInferiores(subconj);
+
+    			if (cotasup.length < 1 || cotainf.length < 1) {
+					return false;    				
+    			} 
+    		}
+    	}
+    	return true;
+    }
+
+    /**
+     * Calcula si el conjunto es un retículo de boole
+     */
+    public boolean esReticuloDeBoole() {
+    	if (esReticuloComplementado() && esReticuloDistributivo()) {
+    		return true;
+    	}
+    	return false;    	
+    }
+
+    /**
+     * Comprueba si es un retículo distributivo
+     */
+    public boolean esReticuloDistributivo() {
+    	if (!esReticulo())
+    		return false;
+    	for (int i = 0; i < set.length-2; i++) {
+    		for (int j = i+1; j < set.length-1; j++) {
+    			for (int k = j+1; k < set.length; k++) {
+    				if (supremoIdx(i, infimoIdx(j, k)) != infimoIdx(supremoIdx(i, j), supremoIdx(i, k)))
+    					return false;
+    			}
+    		}
+    	}
+    	return true;
+    }
+
+	/**
+	 * Comprueba si se trata de un conjunto complementado.
+	 */
+	public boolean esReticuloComplementado() {
+		if (!esReticulo()) {
+    		return false;
+    	}
+    	for (int i = 0; i < set.length; i++) {
+    		if (complement(set[i]) < 0)
+    			return false;
+    	}
+    	return true;
+
+	}
+
+    /**
+     * Calcula el complementario de a en el conjunto
+     */
+    public int complement(int a) {
+    	/* Check that a exists in 'set' */
+    	int idx;
+    	for (idx = 0; idx < set.length; idx++) {
+    		if (a == set[idx]) {
+    			break;
+    		}
+    	}
+    	if (idx == set.length)
+    		return ERR_NOT_FOUND;
+
+    	/* The complement of a is such that a^b = 0 && avb = 1 */
+    	for (int i = 0; i < set.length; i++) {
+    		if (i == idx)
+    			continue;
+    		if (supremoIdx(idx, i) == set.length-1 && infimoIdx(idx, i) == 0) {
+    			return set[i];
+    		}
+    	}
+
+    	return ERR_NOT_FOUND;
+
+    }
+
+    /**
      * Calcula el índice de un valor dado
      */
     private int indexOf(int a) {
