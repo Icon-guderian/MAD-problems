@@ -3,12 +3,6 @@ import java.util.Scanner;
 import java.util.Locale;
 import java.util.Arrays;
 
-/**
- * Write a description of class mcd here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 public class procesos {
     public static int mcd(int a, int b){
         if (b == 0) return a;
