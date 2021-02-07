@@ -27,9 +27,7 @@ public class pruebas2
         int[] factB = new int[procesos.rango2(b)];
         int[] factM = new int[procesos.rango2(m)];
 
-        procesos.fact(factA, a); 
-        procesos.fact(factB, b);
-        procesos.fact(factM, m);
+        
 
         System.out.println("a = "+ Arrays.toString(factA));
         System.out.println("b = "+ Arrays.toString(factB));

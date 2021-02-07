@@ -139,19 +139,100 @@ public class procesos {
         }
     }
 
-    public static int AvgMod(int a, int m){
-        int numero = 0; 
-        int mod = a % m;
-        int modulo = 0; 
-        while(numero <= m){
-            modulo = numero % m; 
-            if(modulo == mod & a != numero) {
-                return modulo; 
+    public static int ZmPositiva(int a, int b, int m, String det, String plr, int AbsB, int d){
+        System.out.println("\n"); 
+        System.out.println("La ecuación se queda de la forma ax = b tal que: "+ a +"x = "+ b +"\n");
+        System.out.println("Ahora calculamos el MCD de a y m para comprobar "+ det +" "+ plr +" de la ecuación "+ a +"x = "+ b +". MCD("+ a +", "+ m +") = "+ d); 
+        System.out.println("Por lo que habrán "+ d +" "+ plr +"\n"); 
+        System.out.println("Encontramos ahora "+ det +" "+ plr +", para ello primero hemos de hallar el módulo de "+ b);
+        int modb = procesos.modulo(b, m); 
+        System.out.println(b +" / "+ m +" el resto es "+ modb + ". Así que hay que encontrar "+ det +" "+ plr +" que cumplan la ecuación."); 
+        int x = 0; 
+        int y = 0;
+        while(procesos.modulo(a, m) > y){
+            int X = x; 
+            x = x * a; 
+            if(procesos.modulo(x, m) == procesos.modulo(b, m)){
+                System.out.println("La solución es "+ X); 
+                y++;
+                x = X;
+                x++;
             } else {
-                numero++; 
+                x = X;
+                x++; 
             }
+        }
+
+        return x; 
+    }
+
+    public static int ZmNegativa(int a, int b, int m, String det, String plr, int AbsB, int d){
+        d = Math.abs(d);
+        System.out.println("\n"); 
+        System.out.println("La ecuación se queda de la forma ax = -b tal que: "+ a +"x = "+ b +"\n");
+        System.out.println("Ahora que habría que positivizar la b, pues es negativa. Por lo que hay que encontrar un número en Z"+ m +" cuyo módulo sea 0 más grande que "+ AbsB); 
+        int numero = 1; 
+        int mod2 = procesos.modulo(numero, m); 
+        while(mod2 != 0 | numero < AbsB){
+            numero++; 
+            mod2 = procesos.modulo(numero, m); 
         } 
-        
-        return modulo; 
+        System.out.println("El número que buscamos que cumple la condición es "+ numero +" y como el módulo de"+ numero +" es igual al de 0. Por lo que: "); 
+
+        if(numero - AbsB > m) {
+            System.out.println(b +" = 0 + "+ b +" = "+ numero +" "+ b + " = "+ (numero + AbsB) +"\n"); 
+            b = numero + AbsB; 
+            System.out.println("La ecuación quedaría tal que: "+ a +"x = "+ b +"\n");
+            System.out.println("Ahora calculamos el MCD de a y m para comprobar "+ det +" "+ plr +" de la ecuación "+ a +"x = "+ b +". MCD("+ a +", "+ m +") = "+ d); 
+            System.out.println("Por lo que habrán "+ d +" "+ plr +"\n"); 
+            System.out.println("Encontramos ahora "+ det +" "+ plr +", para ello primero hemos de hallar el módulo de "+ b);
+            int modb = procesos.modulo(b, m); 
+            System.out.println(b +" / "+ m +" el resto es "+ modb + ". Así que hay que encontrar "+ det +" "+ plr +" que cumplan la ecuación."); 
+            int x = 0; 
+            int y = 0;
+            while(procesos.modulo(a, m) > y){
+                int X = x; 
+                x = x * a; 
+                if(procesos.modulo(x, m) == procesos.modulo(b, m)){
+                    System.out.println("La solución es "+ X); 
+                    y++;
+                    x = X;
+                    x++;
+                } else {
+                    x = X;
+                    x++; 
+                }
+            }
+
+            return x; 
+        } else {
+            
+            System.out.println(b +" = 0 + "+ b +" = "+ numero +" "+ b + " = "+ (numero - AbsB) +"\n"); 
+            b = numero - AbsB;
+            System.out.println("La ecuación quedaría tal que: "+ a +"x = "+ b +"\n");
+            System.out.println("Ahora calculamos el MCD de a y m para comprobar "+ det +" "+ plr +" de la ecuación "+ a +"x = "+ b +". MCD("+ a +", "+ m +") = "+ d); 
+            System.out.println("Por lo que habrán "+ d +" "+ plr +"\n"); 
+            System.out.println("Encontramos ahora "+ det +" "+ plr +", para ello primero hemos de hallar el módulo de "+ b);
+            int modb = procesos.modulo(b, m); 
+            System.out.println(b +" / "+ m +" el resto es "+ modb + ". Así que hay que encontrar "+ det +" "+ plr +" que cumplan la ecuación."); 
+            int x = 0; 
+            int y = 0;
+            while(procesos.modulo(a, m) > y){
+                int X = x; 
+                x = x * a; 
+                if(procesos.modulo(x, m) == procesos.modulo(b, m)){
+                    System.out.println("La solución es "+ X); 
+                    y++;
+                    x = X;
+                    x++;
+                } else {
+                    x = X;
+                    x++; 
+                }
+            }
+
+            return x; 
+        }
+
     }
 }
