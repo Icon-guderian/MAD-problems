@@ -26,11 +26,22 @@ public class OperacionesZm {
 
                 if(c == 0) {
                     if(a < 0 & b < 0 | a > 0 & b > 0){
-                        System.out.println("La ecuación se queda de la forma ax = b tal que: "+ a +"x = "+ b);
-                        System.out.println();
+                        int AbsB = b; 
+                        b = -b; 
+                        System.out.println("La ecuación se queda de la forma ax = -b tal que: "+ a +"x = "+ b);
+                        System.out.println("Ahora que habría que positivizar la b, pues es negativa. Por lo que hay que encontrar un número en Z"+ m +" cuyo módulo sea 0 más gramde que "+ AbsB); 
+                        int numero = 1; 
+                        int mod2 = procesos.modulo(numero, m); 
+
+                        while(mod2 != 0 | numero < AbsB){
+                            numero++; 
+                            mod2 = procesos.modulo(numero, m); 
+                        } 
+
+                        System.out.println(numero); 
                     } else if (a < 0 & b > 0 | a > 0 & b < 0) {
-                        System.out.println("La ecuación se queda de la forma ax = -b tal que: "+ a +"x = "+ b); 
-                        
+                        System.out.println("La ecuación se queda de la forma ax = b tal que: "+ a +"x = "+ b); 
+
                     }
                 } else  {
 
