@@ -55,15 +55,95 @@ public class OperacionesZm {
                             procesos.ZmPositiva(a, b, m, s, j, AbsB, dd);    
                         }
                     } else if (c != 0) {
-                        if(a < 0 & b < 0 | a > 0 & b > 0){
-                            if(a > 0 & b > 0){
-                                
+                        if (c < 0){
+                            if(a < 0 & b < 0 | a > 0 & b > 0){
+                                if(a > 0 & b > 0){
+                                    int AbsB = b; 
+                                    b = -b; 
+                                    b += c;
+                                    String s, j;
+                                    s = "la"; 
+                                    j = "solución"; 
+                                    procesos.ZmNegativa(a, b, m, s, j, AbsB, d);
+                                }
+                                if(a < 0 & b < 0){
+                                    int AbsB = b; 
+                                    a = -a; 
+                                    c = -c;
+                                    b += b;
+                                    String s, j;
+                                    s = "la"; 
+                                    j = "solución"; 
+                                    procesos.ZmNegativa(a, b, m, s, j, AbsB, d);
+                                }     
+                            } else if (a < 0 & b > 0 | a > 0 & b < 0) {
+                                int AbsB = b; 
+                                int dd = procesos.mcd(a, m);
+                                b = Math.abs(b);
+                                a = Math.abs(a);
+                                b = -b; 
+                                b += c;
+                                if (b > 0){
+                                    String s, j;
+                                    s = "la"; 
+                                    j = "solución"; 
+                                    procesos.ZmNegativa(a, b, m, s, j, AbsB, dd);
+                                } else {
+                                    String s, j;
+                                    s = "la"; 
+                                    j = "solución"; 
+                                    procesos.ZmPositiva(a, b, m, s, j, AbsB, dd);   
+                                }
                             }
-                            if(a < 0 & b < 0){
-                                
-                            }     
-                        } else if (a < 0 & b > 0 | a > 0 & b < 0) {
-                               
+                        }
+                        if (c > 0){
+                            if(a < 0 & b < 0 | a > 0 & b > 0){
+                                if(a > 0 & b > 0){
+                                    int AbsB = b;
+                                    b = -b;
+                                    String s, j;
+                                    s = "la"; 
+                                    j = "solución"; 
+                                    b += c; 
+                                    if(b > 0){
+                                        procesos.ZmPositiva(a, b, m, s, j, AbsB, d);   
+                                    } else {
+                                        procesos.ZmNegativa(a, b, m, s, j, AbsB, d);
+                                    }
+                                }
+                                if(a < 0 & b < 0){
+                                    int AbsB = b; 
+                                    a = -a;
+                                    String s, j;
+                                    s = "la"; 
+                                    j = "solución"; 
+                                    c = -c;
+                                    b += c; 
+                                    if(b > 0){
+                                        procesos.ZmPositiva(a, b, m, s, j, AbsB, d);   
+                                    } else {
+                                        procesos.ZmNegativa(a, b, m, s, j, AbsB, d);
+                                    }
+                                }     
+                            } else if (a < 0 & b > 0 | a > 0 & b < 0) {
+                                int AbsB = b; 
+                                int dd = procesos.mcd(a, m);
+                                b = Math.abs(b);
+                                a = Math.abs(a);
+                                b = -b; 
+                                b += c;
+                                if (b > 0){
+                                    String s, j;
+                                    s = "la"; 
+                                    j = "solución"; 
+                                    procesos.ZmNegativa(a, b, m, s, j, AbsB, dd);
+                                } else {
+                                    String s, j;
+                                    s = "la"; 
+                                    j = "solución"; 
+                                    procesos.ZmPositiva(a, b, m, s, j, AbsB, dd);   
+                                }
+                            }
                         }
                     }
                 } else if(d != 1 & b % d != 0 || d == 0) {
@@ -100,15 +180,95 @@ public class OperacionesZm {
                             procesos.ZmPositiva(a, b, m, s, j, AbsB, dd);    
                         }
                     } else if (c != 0) {
-                        if(a < 0 & b < 0 | a > 0 & b > 0){
-                            if(a > 0 & b > 0){
-                               
+                        if (c < 0){
+                            if(a < 0 & b < 0 | a > 0 & b > 0){
+                                if(a > 0 & b > 0){
+                                    int AbsB = b; 
+                                    b = -b; 
+                                    b += c;
+                                    String s, j;
+                                    s = "las"; 
+                                    j = "soluciones"; 
+                                    procesos.ZmNegativa(a, b, m, s, j, AbsB, d);
+                                }
+                                if(a < 0 & b < 0){
+                                    int AbsB = b; 
+                                    a = -a; 
+                                    c = -c;
+                                    b += b;
+                                    String s, j;
+                                    s = "las"; 
+                                    j = "soluciones"; 
+                                    procesos.ZmNegativa(a, b, m, s, j, AbsB, d);
+                                }     
+                            } else if (a < 0 & b > 0 | a > 0 & b < 0) {
+                                int AbsB = b; 
+                                int dd = procesos.mcd(a, m);
+                                b = Math.abs(b);
+                                a = Math.abs(a);
+                                b = -b; 
+                                b += c;
+                                if (b > 0){
+                                    String s, j;
+                                    s = "las"; 
+                                    j = "soluciones"; 
+                                    procesos.ZmNegativa(a, b, m, s, j, AbsB, dd);
+                                } else {
+                                    String s, j;
+                                    s = "las"; 
+                                    j = "soluciones"; 
+                                    procesos.ZmPositiva(a, b, m, s, j, AbsB, dd);   
+                                }
                             }
-                            if(a < 0 & b < 0){
-                                
-                            }     
-                        } else if (a < 0 & b > 0 | a > 0 & b < 0) {
-                               
+                        }
+                        if (c > 0){
+                            if(a < 0 & b < 0 | a > 0 & b > 0){
+                                if(a > 0 & b > 0){
+                                    int AbsB = b;
+                                    b = -b;
+                                    String s, j;
+                                    s = "la"; 
+                                    j = "solución"; 
+                                    b += c; 
+                                    if(b > 0){
+                                        procesos.ZmPositiva(a, b, m, s, j, AbsB, d);   
+                                    } else {
+                                        procesos.ZmNegativa(a, b, m, s, j, AbsB, d);
+                                    }
+                                }
+                                if(a < 0 & b < 0){
+                                    int AbsB = b; 
+                                    a = -a;
+                                    String s, j;
+                                    s = "la"; 
+                                    j = "solución"; 
+                                    c = -c;
+                                    b += c; 
+                                    if(b > 0){
+                                        procesos.ZmPositiva(a, b, m, s, j, AbsB, d);   
+                                    } else {
+                                        procesos.ZmNegativa(a, b, m, s, j, AbsB, d);
+                                    }
+                                }     
+                            } else if (a < 0 & b > 0 | a > 0 & b < 0) {
+                                int AbsB = b; 
+                                int dd = procesos.mcd(a, m);
+                                b = Math.abs(b);
+                                a = Math.abs(a);
+                                b = -b; 
+                                b += c;
+                                if (b > 0){
+                                    String s, j;
+                                    s = "la"; 
+                                    j = "solución"; 
+                                    procesos.ZmNegativa(a, b, m, s, j, AbsB, dd);
+                                } else {
+                                    String s, j;
+                                    s = "la"; 
+                                    j = "solución"; 
+                                    procesos.ZmPositiva(a, b, m, s, j, AbsB, dd);   
+                                }
+                            }
                         }
                     }
                 }
