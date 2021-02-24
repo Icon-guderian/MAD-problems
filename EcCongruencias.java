@@ -87,7 +87,6 @@ public class EcCongruencias {
             System.out.println("La ecuación no tiene solución, puesto que el MCD de "+ a +" y "+ m +" es "+ d +" el cual no es divisor de "+ b +". Por lo que es de tipo 3");
         } else if(d != 1) {
             if(aa > mm){
-                a = a % m;
 
                 System.out.println("Al pasar "+ aa +" a módulo "+ m +"la ecuación queda tal que: "+ a +"x = "+ b +" con módulo "+ m + "\n");
                 System.out.println("La ecuación tiene soluciones, ya que el MCD("+ a +", "+ m +") = "+ d +" y "+ d +" es divisor de "+ b +"\n");
